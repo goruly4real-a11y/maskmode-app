@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaskMode Interactive Preview</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">MM</div>
+            <button class="nav-btn active" data-tab="masks">🎭 Masks</button>
+            <button class="nav-btn" data-tab="realms">🌐 Realms</button>
+            <button class="nav-btn" data-tab="feed">📱 Feed</button>
+            <button class="nav-btn" data-tab="pet">🐾 Pet</button>
+            <button class="nav-btn" data-tab="binds">🔗 Binds</button>
+            <div class="user-stats">
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+                <span class="xp-text">LVL 5 | 450 XP</span>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Masks Tab -->
+            <section id="masks" class="tab-content active">
+                <h2>Mask Gallery</h2>
+                <div class="mask-grid">
+                    <div class="mask-card" onclick="selectMask('ronin')">
+                        <img src="assets/ronin.png" alt="Cyber Ronin">
+                        <h3>Cyber Ronin</h3>
+                        <p>Futuristic samurai spirit.</p>
+                        <span class="rarity legendary">LEGENDARY</span>
+                    </div>
+                    <div class="mask-card" onclick="selectMask('ghost')">
+                        <img src="assets/ghost.png" alt="Ethereal Ghost">
+                        <h3>Ethereal Ghost</h3>
+                        <p>Translucent and mystical.</p>
+                        <span class="rarity rare">RARE</span>
+                    </div>
+                    <div class="mask-card" onclick="selectMask('forest')">
+                        <img src="assets/forest.png" alt="Ancient Forest">
+                        <h3>Ancient Forest</h3>
+                        <p>Spirit of the old woods.</p>
+                        <span class="rarity uncommon">UNCOMMON</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Realms Tab -->
+            <section id="realms" class="tab-content">
+                <h2>Active Realms</h2>
+                <div class="realm-list">
+                    <div class="realm-item">
+                        <div class="realm-info">
+                            <h3>Neon District</h3>
+                            <p>For cyber-themed masks only.</p>
+                        </div>
+                        <button class="join-btn">Enter</button>
+                    </div>
+                    <div class="realm-item locked">
+                        <div class="realm-info">
+                            <h3>Old Growth Woods 🔒</h3>
+                            <p>Requires Forest Mask.</p>
+                        </div>
+                        <button class="join-btn disabled">Locked</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pet Tab -->
+            <section id="pet" class="tab-content">
+                <h2>Pet Companion</h2>
+                <div class="pet-view">
+                    <div class="pet-avatar" id="petAvatar">🐾</div>
+                    <div class="pet-stats">
+                        <div class="stat">Happiness: <progress value="80" max="100"></progress></div>
+                        <div class="stat">Hunger: <progress value="20" max="100"></progress></div>
+                    </div>
+                    <div class="pet-actions">
+                        <button onclick="petInteraction('feed')">🍏 Feed</button>
+                        <button onclick="petInteraction('pet')">✋ Pet</button>
+                        <button onclick="petInteraction('play')">🏀 Play</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Binds Tab -->
+            <section id="binds" class="tab-content">
+                <h2>Mystical Binds</h2>
+                <div class="bind-list">
+                    <div class="bind-item">
+                        <div class="bind-avatar">🎭</div>
+                        <div class="bind-info">
+                            <h3>Unknown Soul</h3>
+                            <p>Flare Level 3</p>
+                        </div>
+                        <button class="msg-btn">Chat</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Notification Area -->
+        <div id="toast" class="toast"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
