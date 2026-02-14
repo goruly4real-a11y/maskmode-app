@@ -137,6 +137,10 @@
                     <span class="m-icon">🌿</span>
                     <span class="m-name">Forest</span>
                 </button>
+                <button class="mask-option locked" id="forbiddenMask" data-mask="forbidden" style="--m-color: #ffd700">
+                    <span class="m-icon">🔒</span>
+                    <span class="m-name">???</span>
+                </button>
             </div>
 
             <div class="theme-preview-card">
@@ -166,6 +170,13 @@
                     </div>
                 </div>
                 <div class="preview-fab">+</div>
+            </div>
+
+            <!-- Mask Voice Playground -->
+            <div class="mask-playground">
+                <h3>Try Your Mask Voice</h3>
+                <input type="text" id="maskInput" placeholder="Type something..." maxlength="25" autocomplete="off">
+                <div id="maskOutput" class="mask-output theme-default">Type above...</div>
             </div>
         </div>
     </section>
@@ -243,6 +254,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Elemental Trails Canvas (PC Only) -->
+    <canvas id="trailCanvas"></canvas>
 
     <script src="app.js"></script>
 </body>

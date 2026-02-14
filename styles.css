@@ -70,6 +70,7 @@ h4 {
 /* Typography Helpers */
 .text-gradient {
     background: linear-gradient(135deg, var(--accent), var(--secondary));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -620,12 +621,31 @@ h4 {
     animation: pulseGlow 2s infinite ease-in-out;
 }
 
+#trailCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    /* Below intro overlay but above content */
+}
+
+/* Animations visibility */
+.fade-in-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Fix for standard background-clip property */
 .intro-text {
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: 0.5rem;
     text-transform: uppercase;
     background: linear-gradient(135deg, white, var(--accent));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
@@ -654,10 +674,237 @@ h4 {
     }
 }
 
+/* Mask Playground */
+.mask-playground {
+    margin-top: 50px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.mask-playground h3 {
+    margin-bottom: 20px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+#maskInput {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+#maskInput:focus {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px -5px var(--accent);
+}
+
+.mask-output {
+    font-size: 1.8rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 2rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    word-break: break-word;
+    position: relative;
+}
+
+/* Mask Specific Text Effects */
+/* 1. Default: Clean Fade */
+.mask-output.theme-default {
+    color: var(--text-main);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    animation: fadeInScale 0.2s ease-out;
+}
+
+/* 2. Ronin: Glitch & Slash */
+.mask-output.theme-ronin {
+    font-weight: 900;
+    font-style: italic;
+    color: #d8b4fe;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #4a0072, -1px -1px 0px #ff00de;
+    animation: roninSlash 0.15s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+/* 3. Ghost: Vapor Poof */
+.mask-output.theme-ghost {
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: transparent;
+    -webkit-text-stroke: 1px #a5f3fc;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 40px #00ccff;
+    animation: ghostPoof 0.4s ease-out forwards;
+}
+
+/* 4. Forest: Bloom & Grow */
+.mask-output.theme-forest {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #86efac;
+    text-shadow: 0 4px 10px rgba(0, 255, 100, 0.3);
+    letter-spacing: 2px;
+    animation: forestGrow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Keyframes */
+@keyframes roninSlash {
+    0% {
+        transform: skew(-20deg) scale(0.9);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    50% {
+        transform: skew(10deg) scale(1.1);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100% {
+        transform: skew(-5deg) scale(1);
+    }
+}
+
+@keyframes ghostPoof {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes forestGrow {
+    0% {
+        transform: translateY(10px) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Animations visibility */
 .fade-in-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+/* Forbidden Mask & FOMO Styles */
+.mask-option.locked {
+    border-style: dashed;
+    opacity: 0.7;
+}
+
+.mask-option.locked:hover {
+    opacity: 1;
+    cursor: help;
+}
+
+/* Gold / Divine Theme */
+body.theme-forbidden {
+    --accent: #ffd700;
+    --secondary: #fdb931;
+    --bg-black: #1a1600;
+}
+
+.mask-output.theme-forbidden {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffed4a, 0 0 40px #ffd700;
+    animation: goldShimmer 2s infinite linear;
+    letter-spacing: 4px;
+}
+
+@keyframes goldShimmer {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+
+    50% {
+        filter: hue-rotate(-10deg) brightness(1.3);
+    }
+
+    100% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+}
+
+/* Glitch Animation Class */
+.glitch-active {
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: red !important;
+    background: black !important;
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: translate(0)
+    }
+
+    20% {
+        transform: translate(-2px, 2px)
+    }
+
+    40% {
+        transform: translate(-2px, -2px)
+    }
+
+    60% {
+        transform: translate(2px, 2px)
+    }
+
+    80% {
+        transform: translate(2px, -2px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
 }
 
 /* --- Mobile Responsiveness --- */
