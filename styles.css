@@ -586,8 +586,7 @@ h4 {
     }
 }
 
-/* Mobile Tweaks */
-/* Intro Overlay Styles */
+/* Intro Overlay Styles (Global) */
 .intro-overlay {
     position: fixed;
     top: 0;
@@ -659,4 +658,143 @@ h4 {
 .fade-in-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo-svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Hide nav links on mobile */
+    .nav-links {
+        display: none;
+    }
+
+    /* Hero */
+    .hero {
+        flex-direction: column-reverse;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 60px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtext {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .btn-large {
+        width: 100%;
+        padding: 14px 20px;
+    }
+
+    .hero-visual {
+        margin-bottom: 40px;
+    }
+
+    .mask-floating {
+        width: 260px;
+        height: 260px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Features */
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .feature-card {
+        padding: 30px;
+    }
+
+    /* Mask Switcher */
+    .mask-switcher {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .mask-option {
+        width: 45%;
+        min-width: auto;
+    }
+
+    /* Preview Card */
+    .theme-preview-card {
+        height: 520px;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    /* Intro Overlay */
+    .intro-text {
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .intro-logo {
+        width: 80px;
+        height: 80px;
+    }
 }
