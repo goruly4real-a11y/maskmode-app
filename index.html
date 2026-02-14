@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaskMode | Unmask Your True Self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="theme-default">
+    <!-- Intro Overlay -->
+    <div id="intro-overlay" class="intro-overlay">
+        <div class="intro-content">
+            <div id="intro-particles" class="intro-particles"></div>
+            <svg viewBox="0 0 100 100" class="intro-logo">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" />
+                <path d="M30 40 Q50 30 70 40 Q75 60 50 70 Q25 60 30 40" fill="currentColor" opacity="0.8" />
+            </svg>
+            <h1 class="intro-text">MaskMode</h1>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" class="logo-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                    <path d="M30 40 Q50 30 70 40 Q75 60 50 70 Q25 60 30 40" fill="currentColor" opacity="0.8" />
+                    <circle cx="40" cy="45" r="3" fill="white" />
+                    <circle cx="60" cy="45" r="3" fill="white" />
+                </svg>
+                <span>MaskMode</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#theming">Personas</a>
+                <a href="#pricing">Pricing</a>
+                <button class="btn btn-primary btn-small">Download</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">Unmask Your <span class="text-gradient">True Self</span></h1>
+            <p class="hero-subtext fade-in-delay">Discover a mystical social experience where identity is an art form.
+                Connect through personas, explore unique realms, and grow with your AI companion.</p>
+            <div class="hero-actions fade-in-delay-2">
+                <button class="btn btn-primary btn-large">Get Started</button>
+                <button class="btn btn-secondary btn-large">Watch Trailer</button>
+            </div>
+        </div>
+        <div class="hero-visual fade-in">
+            <div class="mask-floating">
+                <!-- Fallback SVG for the mask -->
+                <svg viewBox="0 0 200 200" class="floating-svg">
+                    <defs>
+                        <linearGradient id="maskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--accent);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--secondary);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 60 Q100 30 150 60 L160 140 Q100 170 40 140 Z" fill="url(#maskGradient)"
+                        filter="url(#glow)" />
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="5" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detailed Features -->
+    <section id="features" class="section features">
+        <div class="container">
+            <h2 class="section-title">Mystical Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Flicks</h3>
+                    <p>Think TikTok, but with a mystical twist. Share short videos wrapped in your mask's unique aura
+                        and visual filters.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Realms</h3>
+                    <p>Join private community spaces gated by specific masks. Whether it's a job board or a gamer den,
+                        find your tribe.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🦊</div>
+                    <h3>AI Companions</h3>
+                    <p>Your mask isn't just a face—it has a heart. Chat with a pet that grows closer to you the more you
+                        interact.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>The Bind</h3>
+                    <p>Connect with other souls. The more you talk, the stronger the "Flare" between you grows,
+                        unlocking deeper bonds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Theming Section -->
+    <section id="theming" class="section theming">
+        <div class="container text-center">
+            <h2 class="section-title">Choose Your Persona</h2>
+            <p class="section-subtitle">Experience how the app transforms with every mask. Click a persona to switch the
+                theme.</p>
+
+            <div class="mask-switcher">
+                <button class="mask-option active" data-mask="default" style="--m-color: #8B5CF6">
+                    <span class="m-icon">🎭</span>
+                    <span class="m-name">Default</span>
+                </button>
+                <button class="mask-option" data-mask="ronin" style="--m-color: #9d50bb">
+                    <span class="m-icon">⚔️</span>
+                    <span class="m-name">Ronin</span>
+                </button>
+                <button class="mask-option" data-mask="ghost" style="--m-color: #00ccff">
+                    <span class="m-icon">👻</span>
+                    <span class="m-name">Ghost</span>
+                </button>
+                <button class="mask-option" data-mask="forest" style="--m-color: #00ff88">
+                    <span class="m-icon">🌿</span>
+                    <span class="m-name">Forest</span>
+                </button>
+            </div>
+
+            <div class="theme-preview-card">
+                <div class="preview-app-header">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="preview-app-title">MaskMode</div>
+                    <div class="preview-settings">⚙️</div>
+                </div>
+                <div class="preview-banner" id="previewBanner"></div>
+                <div class="preview-body" id="previewBody">
+                    <div class="preview-profile">
+                        <div class="preview-avatar"></div>
+                        <div class="preview-info">
+                            <h4 id="previewTitle">Default Mode</h4>
+                            <p id="previewText">Standard mystical interface.</p>
+                        </div>
+                    </div>
+                    <div class="preview-menu">
+                        <div class="menu-item active"><span>🏠</span> Home</div>
+                        <div class="menu-item"><span>🎭</span> Masks</div>
+                        <div class="menu-item"><span>🌐</span> Realms</div>
+                        <div class="menu-item"><span>🦊</span> AI Pet</div>
+                    </div>
+                </div>
+                <div class="preview-fab">+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing">
+        <div class="container">
+            <h2 class="section-title">Go Pro</h2>
+            <p class="section-subtitle">MaskMode is free for all souls. Upgrade to Pro for mystical elite features.</p>
+            <div class="pricing-grid">
+                <!-- Weekly -->
+                <div class="price-card">
+                    <h3>Weekly Pass</h3>
+                    <div class="price">$1<span>/week</span></div>
+                    <ul class="price-features">
+                        <li>🎭 7-Day Pro Access</li>
+                        <li>🏰 Join All Realms</li>
+                        <li>🔥 Priority XP Boost</li>
+                    </ul>
+                    <button class="btn btn-secondary full-width">Get Started</button>
+                </div>
+                <!-- Monthly -->
+                <div class="price-card recommended">
+                    <div class="badge">Most Popular</div>
+                    <h3>Monthly Pro</h3>
+                    <div class="price">$2<span>/month</span></div>
+                    <ul class="price-features">
+                        <li>🎭 30-Day Pro Access</li>
+                        <li>🏰 Join All Realms</li>
+                        <li>🦊 Special Pet Skins</li>
+                        <li>🚫 Ad-Free Experience</li>
+                    </ul>
+                    <button class="btn btn-primary full-width">Unlock Now</button>
+                </div>
+                <!-- Yearly -->
+                <div class="price-card">
+                    <h3>Yearly Elite</h3>
+                    <div class="price">$20<span>/year</span></div>
+                    <div class="savings">Save 17% • 2 Months Free</div>
+                    <ul class="price-features">
+                        <li>🎭 365-Day Pro Access</li>
+                        <li>🏰 Join All Realms</li>
+                        <li>🦊 Exclusive AI Pets</li>
+                        <li>💎 Elite Badge</li>
+                    </ul>
+                    <button class="btn btn-secondary full-width">Go Elite</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">MaskMode</div>
+                    <p>Privacy through persona. Creativity through constraint.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#">Flicks</a>
+                    <a href="#">Realms</a>
+                    <a href="#">AI Pets</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MaskMode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
